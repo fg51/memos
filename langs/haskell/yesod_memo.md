@@ -22,9 +22,9 @@ $ quit
 
 ## 3. add handler
 
-### addhandler
+### add handler
 
-```sh@add handler
+```sh
 $ yesod add-handler
 Name of route (without trailing R): Foo
 Enter route pattern (ex: /entry/#EntryId): /foo
@@ -39,7 +39,10 @@ Enter space-separated list of methods (ex: GET POST): GET
 
 ### fix \*.cabal
 
-```diff@*.cabal
+
+```diff
+$ diff *.cabal
+
   library
       hs-source-dirs: ., app
       exposed-modules: Application
@@ -59,7 +62,9 @@ Enter space-separated list of methods (ex: GET POST): GET
 
 ### copyright
 
-```config/settings.yml
+```diff
+$ diff config/settings.yml
+
 - :copyright: Insert copyright statement here
 + :copyright: my-copyright
 ```
@@ -67,7 +72,9 @@ Enter space-separated list of methods (ex: GET POST): GET
 
 ### Handler
 
-```diff@Handler/Foo.hs
+```diff
+$ diff Handler/Foo.hs
+
 getFooR :: Handler Html
 - getFooR = error "Not yet implemented: getFooR"
 + getFooR = defaultLayout $(widgetFile "foo")
