@@ -35,7 +35,7 @@ from mprpc import RPCClient
 
 def main():
     client = RPCClient("localhost", 3000)
-    ans = client.call("sum", 1, 2)
+    ans = client.call("func", 1, 2)
     print(ans)
 
 if __name__ == '__main__':
