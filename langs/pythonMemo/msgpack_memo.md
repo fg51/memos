@@ -4,13 +4,8 @@ messagepack rpc
 ## 1. install
 
 ```sh
-# pip install msgpack-python msgpack-rpc-python
+$ pip install msgpack-python msgpack-rpc-python
 ```
-
-
-
-
-
 
 
 ## mprpc (messagepack-rpc wrapper)
@@ -48,6 +43,3 @@ if __name__ == '__main__':
 ```
 
 
-
-if __name__ == '__main__':
-    ()
