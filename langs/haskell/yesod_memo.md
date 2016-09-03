@@ -1,6 +1,12 @@
 yesod
 ====
 
+refs:
+[Home · gree/haskell-tutorial Wiki · GitHub](https://github.com/gree/haskell-tutorial/wiki/Haskell%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB)(%E7%AC%AC%E4%BA%8C%E6%97%A5)
+
+[プログラミング芸術論](http://demmys.hatenablog.com/entry/2014/05/22/Haskell%E3%81%A7Web%E3%82%A2%E3%83%97%E3%83%AA_)(4)
+
+
 ## 1. install
 
 ```sh
