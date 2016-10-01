@@ -108,3 +108,11 @@ not require </**>
 
 
 
+## sqlite
+
+```sh
+$ stack new <prj> yesod-sqlite
+```
+
+
+
