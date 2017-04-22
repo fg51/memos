@@ -1,0 +1,30 @@
+doctype
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    style(src='css/style.css')
+    title Hello, Pug world!
+
+  body
+   // this comment is output
+   //- this comment is not output
+
+   div.theme__yellow#wrapper
+     h1.title Hello, Pug world!
+
+     div.content
+       h2 contents title
+       p.text
+         a.link(href='#') link
+       p.image: img(
+         src='http://placehold.jp/200x200.png'
+         alt=''
+       )
+       p.text
+         |foo
+         br
+         |bar
+
+     script(src='js/app.js')
+
+
