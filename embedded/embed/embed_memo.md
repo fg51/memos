@@ -30,3 +30,7 @@ hexをドラッグして USBメモリとして認識されているmbedフォル
 * 公開 HP から直接 import
 
 
+```sh
+$ pip install mbed-cli
+$ mbed import https://github.com/ARMmbed/mbed-os-example-blinky
+```
