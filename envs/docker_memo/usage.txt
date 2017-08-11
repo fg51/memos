@@ -1,0 +1,31 @@
+docker pull
+docker run
+
+docker commit: save
+attach:
+logs: stdout
+inspect : detail
+
+stop
+diff
+history
+
+rm
+
+
+----
+rm <container (a.k. image layer)>
+rmi <image>
+
+----
+docker build dockerfile
+option 
+-v file share with host
+-p port
+-e env
+-i stdin
+-t terminal
+--rm remove container
+
+FROM baseimage
+RUN cmd
