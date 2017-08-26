@@ -114,3 +114,10 @@ Splitting panes
 
 ( default copymode: prefix + [ )
 
+
+### tmux-copy
+
+1. prefix + [ : start select mode with vi
+3. space: start copy
+4. Enter: finish copy
+5. Prefix + ] : paste
