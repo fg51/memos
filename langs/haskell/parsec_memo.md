@@ -2,6 +2,22 @@ parsec3
 ====
 
 
+## setup
+
+```.cabal
+build-depends: parsec
+```
+
+```haskell
+import Text.Parsec
+
+import Text.Parsec.String (Parser)
+-- import Text.Parsec.Text (Parser)
+
+import Control.Applicative hiding ((<|>))
+```
+
+
 ## ParsecT
 
 parser's type: ParsecT
@@ -39,3 +55,59 @@ parser = (++) <$> string "HT" <*> (string "TP" <|> string "ML")
 ```
 
 
+## usage
+
+### char :: Char -> Parser Char
+
+特定の文字のみ受け付ける parser
+
+```haskell
+parseTest (char 'h') "h"    -- pass
+parseTest (char 'h') "a"    -- error
+```
+
+
+### string :: String -> Parser String
+
+特定の文字列のみ受け付ける parser
+
+```haskell
+parseTest (string 'abc') "abc"    -- pass
+parseTest (string 'abc') "xyz"    -- error
+```
+
+### many :: Parser a -> Parser [a]
+
+指定した parser を0回以上適用して返す parser (== reqexp's * )
+
+
+### (<|>) :: Parser a -> Parser a -> Parser a
+
+一つ目のパーサが失敗時に二つ目のパーサを実行する parser
+
+```haskell
+parseTest (string "hello" <|> string "world") "world" -- pass
+```
+
+二つ目のパーサが実行されるのは 一つ目のパーサが 入力を全く消費せずに 失敗した場合だけになります。 たとえば
+
+
+#### caution
+
+以下の場合, 前段の "abc" parser がheまで消費してしまい, heavenパーサが実行されません。
+```haskell
+parseTest (string "abc" <|> string "abx") "abx" -- error
+```
+
+use "try" (back-track)
+
+```haskell
+parseTest (try (string "hello") <|> string "heaven") "heaven" -- pass
+```
+
+LL(1)
+
+
+### choice :: [Parser a] -> Parser a
+
+リスト中のどれかが成功するまで解析を行う parser
