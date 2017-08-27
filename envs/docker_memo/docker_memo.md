@@ -1,5 +1,5 @@
 Docker
-========================================
+====
 
 [Dockerfile ベストプラクティス (仮)](https://www.qoosky.net/techs/207)
 
@@ -20,6 +20,16 @@ $ uname -r
 
 
 ## install
+
+### archlinux
+
+```bash
+$ sudo pacman -S docker
+$ sudo docker info
+```
+
+
+### ubuntu
 
 ```sh
 $ apt-key adv \
@@ -50,10 +60,13 @@ $ apt-cache policy docker-engine
 ```
 
 
+
 ### verify docker
 
 ```sh
 $ sudo docker info
+
+$ sudo systemctl start docker
 $ sudo docker run hello-world
 ```
 

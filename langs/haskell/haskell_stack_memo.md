@@ -6,8 +6,19 @@ haskell stack
 
 ### Archlinux
 
+
+```/etc/pacman.conf
++ [haskell- core]
++ Server = http://xsounds.org/~haskell/core/$arch
+
+[extra]
+Include = /etc/pacman.d/mirrorlist
+```
+
 ```bash
-$ sudo pacman -S stack ghc-static
+$ sudo pacman -Syu
+$ sudo pacman -S haskell-stack
+# $ sudo pacman -S stack ghc-static
 ```
 
 ```bash
