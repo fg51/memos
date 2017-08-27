@@ -17,6 +17,14 @@ import Text.Parsec.String (Parser)
 import Control.Applicative hiding ((<|>))
 ```
 
+## caution
+
+This is parse2
+
+```haskell
+import Text.ParsecCombinators.Parsec
+```
+
 
 ## ParsecT
 
@@ -34,6 +42,7 @@ a 出力の型
 文字列から文字列を探して返すパーサ
 Monad m => ParsecT String u m String
 
+
 ```haskell
 import Control.Applicative hiding ((<|>))
 import Text.Parsec
@@ -48,7 +57,10 @@ with Test.Parsec.String
 ```haskell
 import Control.Applicative hiding ((<|>))
 import Text.Parsec
-import Text.Parsec.String
+import Text.Parsec.String (Parser)
+
+-- type Parser s u = ParsecT s u Identity
+-- type Parser = Parser String ()
 
 parser :: Parser String
 parser = (++) <$> string "HT" <*> (string "TP" <|> string "ML")
@@ -79,6 +91,12 @@ parseTest (string 'abc') "xyz"    -- error
 ### many :: Parser a -> Parser [a]
 
 指定した parser を0回以上適用して返す parser (== reqexp's * )
+
+
+### oneOf :: [Char]
+
+oneOf [Char]: 複数の文字リストのどれかに match すれば良い場合
+
 
 
 ### (<|>) :: Parser a -> Parser a -> Parser a
