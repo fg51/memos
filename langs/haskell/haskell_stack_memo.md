@@ -25,3 +25,20 @@ $ sudo pacman -S haskell-stack
 $ stack config set system-ghc --global true
 $ cat .stack/config/stack.yaml
 ```
+
+## let, <-
+
+
+```haskell
+let a = foo x  -- function
+b <- bar y     -- result
+```
+
+```python
+a = foo     # function
+b = bar(y)  # result
+```
+
+
+
+

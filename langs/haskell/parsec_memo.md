@@ -69,6 +69,13 @@ parser = (++) <$> string "HT" <*> (string "TP" <|> string "ML")
 
 ## usage
 
+f1 = endBy f2 (char "\n")
+f2 = sepBy f3 (char ",")
+f3 = many (noneOf ",\n")
+
+do many (noneOf "\n") -> do sepBy (char "\n") -> do enbBy (char "\n")
+
+
 ### char :: Char -> Parser Char
 
 特定の文字のみ受け付ける parser
@@ -129,3 +136,5 @@ LL(1)
 ### choice :: [Parser a] -> Parser a
 
 リスト中のどれかが成功するまで解析を行う parser
+
+
