@@ -1,0 +1,43 @@
+
+cc  = arm-none-eabi-g
+cxx = arm-none-eabi-g++
+
+
+rule cxx
+  depfile = $out.d
+  command = $cxx -mcpu=cortex-m4 -mthumb -mfloat-abi=soft $
+    -Og -g3 $
+    -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections $
+    -ffreestanding -fno-move-loop-invariants $
+    -Wunused -Wuninitialized -Wall -Wextra $
+    -Wmissing-declarations -Wconversion -Wpointer-arith $
+    -Wpadded -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal $
+    -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections $
+    -L"../ldscripts" -Wl,-Map,"ref_stm32_01.map" --specs=nano.specs $
+    -o $out $in
+
+#$(OBJS) $(USER_OBJS) $(LIBS)
+
+
+#----
+# org
+
+ref_stm32_01.elf: $(OBJS) $(USER_OBJS)
+
+build $cpp-mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wpadded -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"ref_stm32_01.map" --specs=nano.specs -o "ref_stm32_01.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+ref_stm32_01.hex: ref_stm32_01.elf
+	@echo 'Invoking: Cross ARM GNU Create Flash Image'
+	arm-none-eabi-objcopy -O ihex "ref_stm32_01.elf"  "ref_stm32_01.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+ref_stm32_01.siz: ref_stm32_01.elf
+	@echo 'Invoking: Cross ARM GNU Print Size'
+	arm-none-eabi-size --format=berkeley "ref_stm32_01.elf"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+
