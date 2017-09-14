@@ -1,0 +1,57 @@
+XILINX
+====
+
+[Zynq with Vivado](http://yuki-sato.com/wordpress/2014/12/30/zynq4/)
+
+
+## pre-setup
+
+[Digilent社のボード・ファイルのインストール](http://fpga.blog.jp/archives/53818188.html)
+
+[digilent's boad files](https://github.com/Digilent/vivado-boards/archive/master.zip)
+
+    include: Arty, BASYS3, GENESYS2, NEXYS_VIDEO, NEXYS4, NEXYS4_DDR, ZYBO
+
+
+```bash
+$ cp <board dir> <vivado root>/data/boards/board_files/
+```
+
+
+* old method: require ZYBO\_zynq\_def.xml
+
+
+
+## add FPGA model
+
+1. Create Block Design
+2. Add IP
+
+* ZYBO: input "zynq7 processing" (without BFM)
+
+
+
+## setup ZYBO
+
+require: presetup. digilent's board files.
+
+
+1. click the block: "zybo"
+2. click "Run Block Automation"
+3. in dialog: "Run Block Automation", click "OK".
+    default-setting applied (connect "FIXED\_IO" and "DDR")
+4. see the check marks at I/O peripherals of PS.
+
+
+old method:
+
+[setup zynq with vivado](http://yuki-sato.com/wordpress/2014/12/30/zynq4/)
+
+[setup zynq with vivado](https://reference.digilentinc.com/vivado:boardfiles2015)
+
+
+
+connect "M\_ZXI\_GP0\_ACLK" and "FCLK\_CLK0".
+
+
+
