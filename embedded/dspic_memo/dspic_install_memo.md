@@ -14,7 +14,7 @@ dspic
 
 ## XC16 (compire)
 
-```bash
+```sh
 $ chmod u+x xc16-vX.XX-linux-installer.run
 $ sudo ./xc16-vX.XX-linux-installer.run --help
 $ sudo ./xc16-vX.XX-linux-installer.run --mode text
@@ -31,7 +31,7 @@ tclkit
 download: peripheral-libraries-for-pic24-and-dspic-v2.00-linux-installer.run
 
 
-```bash
+```sh
 $ chmod u+x peripheral-libraries-for-pic24-and-dspic-v2.00-linux-installer.run
 $ sudo ./peripheral-libraries-for-pic24-and-dspic-v2.00-linux-installer.run --help
 $ sudo ./peripheral-libraries-for-pic24-and-dspic-v2.00-linux-installer.run --mode text
@@ -46,7 +46,7 @@ install: /opt/microchip/xc16/v1.25
 
 * require:
 
-```bash
+```sh
 # JAVA
 $ sudo apt-get install open-jdk-8
 
@@ -58,7 +58,7 @@ apt-get install libc6-i386 libx11-6:i386 libasound2:i386 libatk1.0-0:i386 libcai
 
 
 
-```bash
+```sh
 $ dpkg --print-foreign-architectures
 i386
 ```
