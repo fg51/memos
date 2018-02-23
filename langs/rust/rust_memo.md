@@ -18,6 +18,17 @@ $ export PATH="$HOME/.cargo/bin:$PATH"
 $ curl https://sh.rustup.rs -sSf | sh
 ```
 
+```sh
+$ rustc --version
+$ rustup update
+$ rustc --version
+
+$ rustup install nightly
+$ rustup run nightly rustc --version
+$ rustup default nightly
+```
+
+### example
 
 ```rust
 fn main() {
@@ -29,6 +40,7 @@ fn main() {
 $ rustc hello.rs && ./hello
 Hello, World!
 ```
+
 
 ## create project
 
@@ -43,6 +55,7 @@ hello
 ├── .gitignore
 └── src
     └── main.rs
+$ cargo build --release
 ```
 
 
@@ -59,9 +72,14 @@ $ cd project
 $ cargo fmt
 ```
 
-config:
+### config:
 
 rustfmt.toml
+
+
+### vim
+
+[GitHub - rust-lang/rust.vim: Vim configuration for Rust.](https://github.com/rust-lang/rust.vim)
 
 
 ## complete
@@ -74,6 +92,3 @@ $ cargo install racer
 
 
 
-## vim
-
-[GitHub - rust-lang/rust.vim: Vim configuration for Rust.](https://github.com/rust-lang/rust.vim)
