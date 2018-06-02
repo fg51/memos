@@ -1,0 +1,27 @@
+* switch sample
+
+.MODEL swmod SW(RON=0.1 ROFF=1E+12 VT=0.95 VH=0)
+
+V2 1 0 28V
+R1 1 Vout 1k
+V1 sig 0 DC 0V pulse(0V 1V 1m 1n 1n 0.5m 1m)
+S1 Vout 0 sig 0 swmod
+
+
+.OPTIONS TRTOL=1.0 CHGTOL=1E-16
+.OPTIONS savecurrents
+
+
+.control
+.TRAN 0.1m 10m
+run
+
+PLOT sig vout I(V1)
+
+wrdata sig.txt V(sig)
+wrdata vout.txt V(Vout)
+wrdata iout.txt I(V1)
+
+.endc
+
+.end
