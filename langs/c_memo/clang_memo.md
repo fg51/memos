@@ -5,7 +5,7 @@ clang
 ## memory analysis
 
 ```sh
-$ clang -fsanitize=addres -fsanitize=leak
+$ clang -fsanitize=address -fsanitize=leak
 ```
 
 
