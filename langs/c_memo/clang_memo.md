@@ -11,16 +11,21 @@ $ clang -fsanitize=addres -fsanitize=leak
 
 ## clang-format
 
+###  usage
+
 ```sh
 $ clang-format -i <src>
 ```
 
+### config
+
 ```sh
+$ clang-format -style=llvm -dump-config > .clang-format
 $ cat .clang-format
 ---
 BasedOnStyle: LLVM
-ColumnLimit: 110
-BinPackParameters: false
+...
 
+$ cp .clang-format $HOME
 $ clang-format -i -style=file <src>
 ```
