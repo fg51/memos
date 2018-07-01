@@ -7,6 +7,7 @@ mbed-cli
 
 ```sh
 $ pip2 install mbed-cli
+$ pip3 install mbed-cli  # python3.6 or later, and mbedOS 5.9 or later
 ```
 
 ## sample import
@@ -94,7 +95,7 @@ $ minicom -s
 ## build
 
 ```sh
-$ mbed config --global GCC_ARM "toolchain/install//bin/"
+$ mbed config --global GCC_ARM "toolchain/install/bin/"
 $ cat mbed_settings.py
   # GCC ARM
 - #GCC_ARM_PATH = ""
