@@ -1,0 +1,22 @@
+rule cc
+  description = compile: $cc -o $out $in
+  depfile = $out.d
+  command = $cc $cflags -MMD -MF $out.d -c -o $out $in
+
+rule ld
+  description = $link -o $out $in
+  command = $ld -o $out $in
+
+rule cc_test
+  description = compile: $cc -o $out $in
+  depfile = $out.d
+  command = $cc -std=c11 -Wall -Werror -O2 -MMD -MF $out.d -c -o $out $in
+
+rule ld_test
+  description = link: $ld -lcriterion -o $out $in
+  command = $ld -o $out $in -lcriterion
+  # command = $ld -fsanitize=address -fsanitize=leak -o $out $in -lcriterion
+
+rule run_test
+  description = run test: ./$in
+  command = ./$in --verbose

@@ -1,0 +1,23 @@
+include config.ninja
+include rule.ninja
+
+build $obj/hello.o: cc $src/hello.c
+build $out/hello.out: ld $obj/hello.o
+
+build $obj/param.o: cc $src/param.c
+build $obj/param_test.o: cc_test $test/param_test.c
+
+build $obj/read_inifile.o: cc $src/read_inifile.c
+build $obj/read_inifile_test.o: cc_test $test/read_inifile_test.c
+
+build $out/test.out: ld_test $
+  $obj/read_inifile_test.o $
+  $obj/read_inifile.o
+
+# build <phony_name1>: run_test $out/test.out
+
+# build run_test: phony $
+#   <phony_name1> $
+#   <phony_name2>
+
+# default run_test

@@ -1,0 +1,9 @@
+cc = clang
+ld = clang
+# cflags = -std=c11 -Weverything -Wall -Wextra -O2
+cflags = -std=c11 -Wall -Wextra -O2
+
+src  = src
+test = src
+obj  = obj
+out  = out
