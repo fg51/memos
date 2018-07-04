@@ -1,0 +1,51 @@
+if has('win32')
+  set encoding=cp932
+else
+  set encoding=utf-8
+endif
+scriptencoding=utf-8
+
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+packadd! vimdoc-ja
+set helplang=ja,en
+
+set scrolloff=0
+set laststatus=2
+set cmdheight=2
+if !has('gui_runing')
+  set mouse=
+  set ttimeoutlen=0
+  if $COLORTERM == "truecolor"
+    set termguicolors
+  endif
+endif
+set nofixendofline
+set ambiwidth=double
+set directory-=.
+set formatoptions+=mM
+let &grepprg="grep -rnIH --exclude=.git --exclude-dir=.hg --exclude-dir=.svn --esclude=tags"
+
+let &fileencoding = &encoding
+if has('iconv')
+  if &encoding ==# 'utf-8'
+    let &fileencodings = 'iso-2022-jp,euc-jp,cp932,' . &fileencodings
+  else
+    let &fileencodings .= ',iso-2022-jp,utf-8,ucs-2le,ucs-2,euc-jp'
+  endif
+endif
+
+if has('autocmd')
+  function! AU_ReSetting_Fenc()
+    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x72]", 'n') == 0
+      let &fileencoding = &encoding
+    endif
+  endfunction
+  augroup resetting_fenc
+    autocmd!
+    autocmd BufReadPost * call AU_ReSetting_Fenc()
+  augroup END
+endif
+
+hi CursorIM ctermfg=16 ctermbg=127 guifg=#000000 guibg=#af00af
