@@ -29,3 +29,12 @@ BasedOnStyle: LLVM
 $ cp .clang-format $HOME
 $ clang-format -i -style=file <src>
 ```
+
+
+clang
+clangcheck
+clangtidy
+cppcheck
+cpplint
+flawfinder
+g++
