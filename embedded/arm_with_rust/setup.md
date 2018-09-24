@@ -30,6 +30,7 @@ cargo 0.19.0-nightly (8326a3683 2017-04-19)
 
 $ # for Xargo
 $ rustup component add rust-src
+$ rustup target list
 $ rustc --print target-list
 ...
 thumbv6m-none-eabi
