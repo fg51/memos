@@ -17,9 +17,11 @@ $ cargo install wasm-pack
 ## create project
 ```sh
 $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
-$ wasm-pack init  # NOTE: install wasm-bindgen
+$ wasm-pack build  # NOTE: install wasm-bindgen
+# DEPRECATED: $ wasm-pack init  # NOTE: install wasm-bindgen
 #$ cargo generate --git https://github.com/rustwasm/wasm-webpack-template
 ```
+
 
 ```sh
 $ npm init wasm-app www
@@ -36,6 +38,8 @@ $ cd /path/to/$PROJECT
 $ npm link $PROJECT
 ```
 
+## build
+
 ```javascript@$PROJECT/www/index.js
 - import * as wasm from "hello-wasm-pack";
 + import * as wasm from "$PROJECT;
@@ -43,6 +47,10 @@ $ npm link $PROJECT
 wasm.greet();
 ```
 
+```sh
+$ cd $PROJECT/www
+$ rpm start
+```
 
 ## Public methods, exported to JavaScript.
 
