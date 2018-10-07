@@ -1,6 +1,7 @@
 SAM CLI
 ====
 
+deprecate: npm install aws-sam-local
 
 ## install
 
