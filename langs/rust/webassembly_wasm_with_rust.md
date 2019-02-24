@@ -1,6 +1,18 @@
 webassembly with rust
 ====
 
+## toolchain
+
+* wasm-bindgen: basic types.
+* js-sys: use JavaScript's value via rust.
+* web-sys: use DOM via rust.
+
+* cargo-generate: get template
+* wasm-pack: wasm-pack helps you build and publish rust-generated WebAssembly to the npm registry.
+* (Webpack: build wasm-binary to npm)
+* (wasm-pack use wasm-bindgen-cli)
+
+
 ## setup
 
 ```sh
@@ -16,7 +28,17 @@ $ cargo install wasm-pack
 
 ## create project
 ```sh
+$ cd /path/to/$PROJECT
 $ cargo generate --git https://github.com/rustwasm/wasm-pack-template
+$ tree
+.
++ Cargo.toml
++ LICENSE_APACHE
++ LICENSE_MIT
++ README.md
++ src
+  + lib.rs
+  + utils.rs
 $ wasm-pack build  # NOTE: install wasm-bindgen
 # DEPRECATED: $ wasm-pack init  # NOTE: install wasm-bindgen
 #$ cargo generate --git https://github.com/rustwasm/wasm-webpack-template
@@ -28,7 +50,7 @@ $ npm init wasm-app www
 ```
 
 ```sh
-$ cd $PROJECT/www
+$ cd /path/to/$PROJECT/www
 $ npm install
 
 $ cd /path/to/$PROJECT/pkg
