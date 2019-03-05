@@ -15,6 +15,7 @@ $ sam local start-api --help
 
 ## debug sample
 
+
 ### show sample
 
 ```sh
@@ -86,6 +87,10 @@ dlv
 
 
 ### run sam local
+
+```sh
+$ sam local invoke --no-event
+```
 
 ```sh
 $ sam local start-api -d 5986 --debugger-path
