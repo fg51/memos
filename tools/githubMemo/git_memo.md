@@ -19,3 +19,10 @@ $ git checkout -b develop origin/develop
 ```sh
 $ git reset --hard ORIG_HEAD
 ```
+
+
+## file permision
+
+```sh
+$ git config core.filemode false
+```
