@@ -33,12 +33,21 @@
 }
 ```
 
+
+### ignore
+
+```js
+// eslint-dsable-line
+```
+
+
 ## prttier
 ```.prettierrc
 {
   "singleQuote": true
 }
 ```
+
 
 ## vim-ale
 
