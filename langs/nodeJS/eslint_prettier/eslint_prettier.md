@@ -7,9 +7,9 @@
 * eslint-plugin-prettier
 
 
-## .eslintrc
+## .eslintrc.json
 
-```.eslintrc
+```.eslintrc.json
 {
   "extends": [
     "eslint:recommended",
