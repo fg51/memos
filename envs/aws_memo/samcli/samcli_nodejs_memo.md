@@ -15,4 +15,6 @@ $ sam local generate-event apigateway aws-proxy > event_file.json
 $ sam local invoke HelloWorldFunction --event event_file.json
 Error: Could not find lambci/lambda:nodejs10.x image locally and failed to pull it from docker.
 $ docker pull lambci/lambda:nodejs10.x
+
+$ sam local start-api
 ```
