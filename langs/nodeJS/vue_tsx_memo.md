@@ -1,10 +1,23 @@
 
+## setup
+
 ```sh
 $ vue create <app name>
 * typescript: Yes
 * class method: Yes
+
 $ vue add tsx-support
 ```
+
+## name
+* data -> class filed
+* computed -> get, set
+* methods -> instance method
+* watch -> @Watch
+* props -> @Prop
+* render -> render(h: CreateElement): VNode
+
+## sample
 
 ```typescript
 - import <xyz> from HelloWorld.vue;
