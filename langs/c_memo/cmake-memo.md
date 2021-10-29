@@ -22,7 +22,7 @@ $ make VERBOSE=1
 ```
 
 # ROOT
-```cmake
+```cmake@CMakeLists.txt
 # cmake version
 cmake_minimum_required(VERSION 3.21)
 
@@ -31,6 +31,7 @@ project(mylib
   VERSION 1.0
   DESCRIPTION "mylib project"
   LANGUAGES C
+  # set(CMAKE_C_COMPILER clang)
 )
 
 # in-source build-guard
