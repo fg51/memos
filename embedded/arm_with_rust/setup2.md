@@ -3,13 +3,13 @@ $ sudo apt-get install libudev libusb-1.0.0-dev
 ```
 
 ```sh
-$ cargo install cargo-bintutils
+$ cargo install cargo-binutils
 $ rustup +stable component add llvm-tools-preview
 $ cargo add cargo-embed
 $ cargo install flip-link
 $ cargo install probe-run
-$ cargo install defmt
 ```
+
 
 ```sh
 $ cargo generate \
@@ -17,3 +17,8 @@ $ cargo generate \
   --branch main \
   --name my-app
 ```
+
+```sh
+$ probe-run --list-chips
+```
+
