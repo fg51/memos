@@ -36,3 +36,14 @@ pub fn build(b: *std.build.Builder) void {
     test_step.dependOn(&main_tests.step);
 }
 ```
+
+
+## allocator
+* c_allocator: link with libc (used malloc_usable_size)
+* raw_c_allocator: call malloc / free directry (unused malloc_usable_size)
+* page_allocator: call syscall for malloc / free (Thread-safe and lock-free)
+* HeapAllocator: for windows ?
+* AreanaAllocator: wrapper
+* FixedBufferAllocator
+* LogToWriterAllocator: output in the designed writer.
+* LoggingAllocator: output in std.log.
