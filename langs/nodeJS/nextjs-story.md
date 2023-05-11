@@ -20,7 +20,7 @@ $ pnpm i -D prettier typescript-eslint @typescript-eslint/eslint-plugin @typescr
 @storybook/nextjs use webpack. (not vite...)
 
 ```sh
-$ npx sb@next init --skip-install
+$ pnpm dlx storybook@next init
 $ npx sb@next info
 $ pnpm install
 ```
