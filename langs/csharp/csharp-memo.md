@@ -35,6 +35,10 @@ $ dotnet build --configuration Release
 
 ## call other lang
 
+```sh
+clang++ -shared -fPIC -fdeclspec -o build/libnativelib.so src/nativelib.cpp
+```
+
 ### project
 
 ```
@@ -58,10 +62,10 @@ namespace CsBindgen
 {
   internal static unsafe partial class NativeMethods
   {
-  const string __DllName = "nativelib";
+    const string __DllName = "nativelib";
 
-      [IS.DllImport(__DllName, EntryPoint = "add", CallingConvention = IS.CallingConvention.Cdecl, ExactSpelling = true)]
-      public static extern int add(int left, int right);
+    [IS.DllImport(__DllName, EntryPoint = "add", CallingConvention = IS.CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int add(int left, int right);
 
   }
 }
@@ -81,6 +85,7 @@ endif
 #else
 #define DLL_IMPORT
 endif
+
 namespace Native
 {
     DLL_EXPORT int add(int x, int y);

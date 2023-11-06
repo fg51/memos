@@ -107,7 +107,7 @@ class Person : IDisposable
 
 #### static method (class method)
 
-```charp
+```csharp
 public class Name {
     public static string Name = "apple" // class field
     public static GetName() {  // class method
@@ -148,4 +148,58 @@ public record class User
     // => is lambda
     public User(int id, string first, string last) => (Id, FirstName, LastName) = (id, first, last);
 }
+```
+
+```csharp
+// use libnative.so
+using IS = System.Runtime.InteropServices;
+
+[IS.DllImport("native", EntryPoint = "add", CallingConvention = IS.CallingConvention.Cdecl, ExactSpelling = true)]
+static extern void add(IntPtr xs, IntPtr ys);
+//static extern void add(int[] xs, int[] ys);
+
+
+// run native
+{
+
+  // protect GC
+  System.IntPtr ptrx = IS.Marshal.AllocCoTaskMem(IS.Marshal.SizeOf(typeof(int)) * xs.Length);
+  System.IntPtr ptry = IS.Marshal.AllocCoTaskMem(IS.Marshal.SizeOf(typeof(int)) * ys.Length);
+
+  // managed to unmanaged
+  IS.Marshal.Copy(xs, 0, ptrx, xs.Length); // xs -> ptrx
+
+  add(ptrx, ptry);
+
+  // unmanaged to managed
+  IS.Marshal.Copy(ptry, ys, 0, ys.Length);  // ptry -> ys
+
+  // release protect
+  IS.Marshal.FreeCoTaskMem(ptrx);
+  IS.Marshal.FreeCoTaskMem(ptry);
+}
+```
+
+copy from managed array to unmanaged array
+
+```csharp
+[SecurityCriticalAttribute]
+public static void Copy(
+    int[] source, // source array
+    int startIndex, // start index of source
+    IntPtr dest, // destination pointer
+    int length, // number
+)
+```
+
+copy from unmanaged array to managed array
+
+```csharp
+[System.Security.SecurityCritical]
+public static void Copy(
+    IntPtr source, // source pointer
+    int[] dest, // destination array
+    int startIndex, // start index of destination
+    int length, // number
+)
 ```
