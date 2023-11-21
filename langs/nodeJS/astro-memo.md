@@ -2,8 +2,8 @@
 
 astro is static site generator (ssg)
 
-
 ## setup
+
 ```sh
 $ pnpm create astro@lastest
 $ pnpm install
@@ -11,6 +11,7 @@ $ pnpm run dev
 ```
 
 ## react tauri
+
 ```sh
 $ pnpm create astro@latest
 ```
@@ -21,7 +22,7 @@ $ pnpm astro add react
 
 ```astro.config.mjs
 export default defineConfig({
-  integrations: [react()], 
+  integrations: [react()],
 +  vite: {
 +    clearScreen: false,
 +    server: {
@@ -57,8 +58,8 @@ $ pnpm add @tauri-apps/api
 $ pnpm tauri init
 ```
 
-* npm run dev -> pnpm run dev
-* npm run build -> pnpm run build
+- npm run dev -> pnpm run dev
+- npm run build -> pnpm run build
 
 ### with js
 

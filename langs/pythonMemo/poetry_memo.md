@@ -1,7 +1,9 @@
+move to mitsuhiko/rye
+
 # install error
 
-* used python: 3.9
-* required python via numpy: >=3.7,<3.10
+- used python: 3.9
+- required python via numpy: >=3.7,<3.10
 
 ```diff
 [tool.poetry.dependencies]

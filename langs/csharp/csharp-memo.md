@@ -123,3 +123,9 @@ namespace Wrapper {
     }
 }
 ```
+
+## excel package
+
+```sh
+$ dotnet add package NPOI
+```
