@@ -1,4 +1,5 @@
 # example-nextjs
+
 example nextjs typescript react
 
 # next.js13
@@ -9,9 +10,10 @@ $ pnpm i -D prettier typescript-eslint @typescript-eslint/eslint-plugin @typescr
 ```
 
 # pnpm
+
 ```
   "scripts": {
-+   "preinstall": "npx only-allow pnpm", 
++   "preinstall": "npx only-allow pnpm",
   }
 ```
 
@@ -26,6 +28,7 @@ $ pnpm install
 ```
 
 # tailwindcss
+
 ```sh
 $ pnpm install tailwindcss postcss autoprefixer
 $ npx tailwindcss init -p
@@ -33,13 +36,15 @@ $ pnpm add -D @storybook/addon-postcss
 ```
 
 taiwind.config.js
+
 ```
   content: [
-+   "target/dir/**/*.{js, ts, jsx, tsx}", 
++   "target/dir/**/*.{js, ts, jsx, tsx}",
   ]
 ```
 
 src/app/globals.css
+
 ```
 @tailwind base;
 @tailwind components;
@@ -47,6 +52,7 @@ src/app/globals.css
 ```
 
 .storybook/main.js
+
 ```
 "addons": [
 +  {
@@ -61,17 +67,20 @@ src/app/globals.css
 ```
 
 .storybook/preview.js
+
 ```
 + import '../src/app/globals.css'
 ```
 
 ## for vite.
+
 ```sh
 $ pnpm i -D vite@4.0.0 @vitejs/plugin-react-swc
 $ pnpm i -D @storybook/react-vite
 ```
 
 vite.config.ts
+
 ```
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
@@ -83,6 +92,7 @@ export default defineConfig({
 ```
 
 .storybook/main.js
+
 ```
 + const { mergeConfig } = require('vite');
 
@@ -103,10 +113,10 @@ export default defineConfig({
 +  }
 ```
 
-
 ## for global error on vite.
 
 .storybook/preview-head.html
+
 ```
 + <script>
 +   window.global = window;
@@ -116,7 +126,21 @@ export default defineConfig({
 ## for resolve import error on vite with pnpm
 
 .npmrc
+
 ```
 + public-hoist-pattern[]=*storybook*
 ```
 
+# in wsl
+
+```bash
+export BROWER = "none"
+```
+
+```fish
+set -x -U BROSER none
+```
+
+```sh
+pnpm run storybook --no-open
+```
