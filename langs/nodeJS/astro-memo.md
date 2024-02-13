@@ -47,6 +47,12 @@ export default defineConfig({
 });
 ```
 
+## svelte
+
+```sh
+$ pnpm astro add svelte
+```
+
 ## tauri
 
 ```sh
