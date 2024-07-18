@@ -27,7 +27,6 @@ $ npm install --save-dev prettier eslint eslint-config-airbnb eslint-config-pret
 "@emotion/styled": "^11.3.0",
 ```
 
-
 ```json@package.json
 "eslintConfig": {
   "extends": [
@@ -61,4 +60,10 @@ $ npm install --save-dev prettier eslint eslint-config-airbnb eslint-config-pret
   "singleQuote": true,
   "jsxBracketSameLine": true
 }
+```
+
+## with pnpm
+
+```sh
+$ NO_STRIP=true pnpm tauri build
 ```
