@@ -1,10 +1,10 @@
-archlinux in wsl
-====
+# archlinux in wsl
 
 # 0. windows
+
 turn on/off Windows features
 
-[X] Windows subsystem for Linux 
+[X] Windows subsystem for Linux
 [X] Virtural Machine Platform
 
 ```sh
@@ -56,6 +56,7 @@ $ sudoedit /etc/sudoers
 ```
 
 ## locale
+
 ```sh
 $ locale-gen
 $ echo LANG=en_US.UTF-8 > /etc/locale.conf
@@ -64,11 +65,14 @@ $ export LANG=en_US.UTF-8
 
 ## default user
 
-```@/etc/wsl.conf
+@/etc/wsl.conf
+
+```
 [user]
 default={USERNAME}
 
 [boot]
+initTimeout=1000
 systemd = true
 
 [wsl2]
@@ -76,9 +80,16 @@ localhostForwarding = true
 memory = 8GB
 ```
 
+@/etc/wsl.conf
 
-
-```@/etc/wsl.conf
+```
 [interop]
 appendWindowsPath = false
+```
+
+## systemd
+
+```sh
+$ sudo systemctl status
+state: initializing
 ```
