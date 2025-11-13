@@ -1,6 +1,4 @@
-git
-====
-
+# git
 
 ## clone any branch
 
@@ -13,16 +11,35 @@ origin/master
 $ git checkout -b develop origin/develop
 ```
 
-
 ## cancel rebase
 
 ```sh
-$ git reset --hard ORIG_HEAD
+git reset --hard ORIG_HEAD
 ```
-
 
 ## file permision
 
 ```sh
-$ git config core.filemode false
+git config core.filemode false
+```
+
+## git worktree
+
+### create
+
+```sh
+git worktree add ../path/to/dir your/branch
+```
+
+### delete
+
+```sh
+git worktree remove ../path/to/dir 
+```
+
+or
+
+```sh
+rm ../path/to/dir
+git worktree prune
 ```
