@@ -34,7 +34,7 @@ git worktree add ../path/to/dir your/branch
 ### delete
 
 ```sh
-git worktree remove ../path/to/dir 
+git worktree remove ../path/to/dir
 ```
 
 or
@@ -42,4 +42,16 @@ or
 ```sh
 rm ../path/to/dir
 git worktree prune
+```
+
+## rebase
+
+```sh
+git rebase -i base-branch
+```
+
+## merge
+
+```sh
+(at dev) git merge --ff-only feat/xxx
 ```
